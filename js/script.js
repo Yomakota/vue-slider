@@ -6,6 +6,11 @@ var app = new Vue(
 
         data: {
 
+            thumb: {
+                isActive: true,
+                noActive: false
+            },
+
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -33,6 +38,30 @@ var app = new Vue(
                     text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
                 }
             ],
+
+           selectedActive : 0,
+
+           
+           
+        },
+
+        methods:{
+
+            nextSlide() {
+                this.selectedActive++;
+                if (this.selectedActive <= this.slides.length - 1) {
+                } else {
+                    this.selectedActive = 0;
+                }
+            },
+
+            prevSlide() {
+                this.selectedActive--;
+                if (this.selectedActive >= 0) {
+                } else {
+                    this.selectedActive = this.slides.length - 1;
+                }
+            },
         }
     }
 );
