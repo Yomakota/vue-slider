@@ -1,17 +1,17 @@
 // Descrizione:
 // Partendo dal markup in allegato, rifare lo slider usando Vuejs.
+
 var app = new Vue(
+
     {
         el: '#app',
 
         data: {
 
-            thumb: {
-                isActive: true,
-                noActive: false
-            },
+            selectedActive: 0,
 
             slides: [
+
                 {
                     image: 'img/01.jpg',
                     title: 'Svezia',
@@ -38,14 +38,9 @@ var app = new Vue(
                     text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
                 }
             ],
-
-           selectedActive : 0,
-
-           
-           
         },
 
-        methods:{
+        methods: {
 
             nextSlide() {
                 this.selectedActive++;
