@@ -10,7 +10,7 @@ var app = new Vue(
 
         data: {
 
-            selectedActive: 0,
+            selectedPicture: 0,
 
             slides: [
                 {
@@ -44,26 +44,25 @@ var app = new Vue(
         methods: {
 
             nextSlide() {
-                this.selectedActive++;
-                if (this.selectedActive <= this.slides.length - 1) {
-                } else {
-                    this.selectedActive = 0;
+                this.selectedPicture++;
+                if (this.selectedPicture > this.slides.length - 1) {
+                    this.selectedPicture = 0;
                 }
             },
 
             prevSlide() {
-                this.selectedActive--;
-                if (this.selectedActive >= 0) {
-                } else {
-                    this.selectedActive = this.slides.length - 1;
+                this.selectedPicture--;
+                if (this.selectedPicture < 0) {
+                    this.selectedPicture = this.slides.length - 1;
                 }
             },
 
             //BONUS
+            
             // 1 - al click su una thumb, visualizzare in grande l'immagine corrispondente
 
             selectImg(index) {
-                this.selectedActive = index;
+                this.selectedPicture = index;
             },
 
             // 2 - applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
@@ -75,8 +74,7 @@ var app = new Vue(
             // 3 - quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
             
             stopAutoPlay() {
-                clearInterval(this.timer)
-                this.timer = false;
+                clearInterval(this.timer);
             }
         },
 

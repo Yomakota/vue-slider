@@ -8,7 +8,7 @@ var app = new Vue(
 
         data: {
 
-            selectedActive: 0,
+            selectedPicture: 0,
 
             slides: [
 
@@ -43,18 +43,16 @@ var app = new Vue(
         methods: {
 
             nextSlide() {
-                this.selectedActive++;
-                if (this.selectedActive <= this.slides.length - 1) {
-                } else {
-                    this.selectedActive = 0;
+                this.selectedPicture++;
+                if (this.selectedPicture > this.slides.length - 1) {
+                    this.selectedPicture = 0;
                 }
             },
 
             prevSlide() {
-                this.selectedActive--;
-                if (this.selectedActive >= 0) {
-                } else {
-                    this.selectedActive = this.slides.length - 1;
+                this.selectedPicture--;
+                if (this.selectedPicture < 0) {
+                    this.selectedPicture = this.slides.length - 1;
                 }
             },
         }
