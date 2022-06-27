@@ -78,6 +78,8 @@ var app = new Vue(
             }
         },
 
+        // 2 - applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+
         mounted() {
             this.autoPlay();
         }
